@@ -1,13 +1,42 @@
 /* ADD styling for all of the divs in post.html to match  */
 
 #individual-post-title {
-
 }
 
 #individual-post-date {
-
 }
 
 #individual-post-content {
+}
 
+.navigation {
+  border-radius: 5px;
+  border: 2px solid #004185;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.navigation:hover {
+  cursor: pointer;
+}
+.navigation a {
+  text-decoration: none;
+  color: #004185;
+}
+.post-title {
+  font-size: 1.5em;
+  margin-top: 12px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+}
+.post-date {
+  color: #888888;
+  font-size: 12px;
+}
+.post-body {
+  margin-top: 6px;
+  font-size: 1em;
+  font-weight: 500;
 }

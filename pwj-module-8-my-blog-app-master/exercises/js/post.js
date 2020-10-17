@@ -11,11 +11,41 @@ window.onload = () => {
     getPost();
 }
 
+const getPostIdParam = () => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get("id");
+}
+
 const getPost = () => {
-    // CODE GOES HERE
+    const postID = getPostIdParam();
+    let POST_URL = `${API_URL}${postID}`
+    fetch(POST_URL, {
+        method:'GET'
+    }).then((response)=> {
+        return response.json()
+    }).then((data) => {
+        buildPost(data);
+    })
 }
 
 const buildPost = (data) => {
     // HINT: Convert the date number to a Date string 
+    console.log(data)
+    let postDate = new Date(parseInt(data.added_date)).toDateString();
+    let postinfo= 
+        `<div class="post-container">
+            <div class="post-title">
+                <h1>${data.title}</h1>
+            </div>
+            <div class="post-date">
+                <p>${postDate}</p>
+            </div>
+            <div class="post-body">
+                <p>${data.content}</p>
+            </div>
+        </div>`;
+    document.querySelector('.post-container').innerHTML = postinfo;
+
 }
 
